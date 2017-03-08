@@ -1,0 +1,86 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea,
+th, td {
+    margin: 0;
+    padding: 0;
+}
+
+
+body,
+button, input, select, textarea  {
+    vertical-align: text-top;
+    outline:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none ;
+    box-shadow: none ;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea{
+    resize: none;
+}
+
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal;}
+address, cite, dfn, em, var { font-style: normal; }
+code, kbd, pre, samp { font-family: courier new, courier, monospace; }
+small { font-size: 12px; }
+ul, ol { list-style: none; }
+a { text-decoration: none; }
+i{font-style: normal;}
+/*a:hover { text-decoration: underline; }*/
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+legend { color: #000; }
+fieldset, img { border: 0; }
+button, input, select, textarea { font-size: 100%; }
+table { border-collapse: collapse; border-spacing: 0; }
+article, aside, details, figcaption, figure, footer,header, menu, nav, section,
+summary, time, mark, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+mark { background: #ff0; }
+
+
+/*h5清除默认样式*/
+html,body{
+    font-size:50px;
+    position: relative;
+    background: #ececec;
+    font-family:"Microsoft Yahei","STHeiti";
+}
+html {
+    color: #000;
+    background: #fff;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+html * {
+    outline:none;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    vertical-align: top;
+}
+body {
+    -webkit-text-size-adjust: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    -webkit-overflow-scrolling : touch;
+    overflow-scrolling : touch;
+}
+body * { max-height: 999999px; }
+*,
+*:before,
+*:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-user-select: -moz-none;
+    -webkit-touch-callout: none;
+    margin: 0;
+    padding: 0;
+.box-sizing(border-box);
+    -ms-touch-action: pan-y;
+}

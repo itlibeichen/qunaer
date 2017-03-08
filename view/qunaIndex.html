@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去哪儿蓝钻礼券兑换</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <!--清除默认样式-->
+    <link rel="stylesheet" href="../css/base.css">
+    <!--本页面单独的样式-->
+    <link rel="stylesheet" href="../css/QunaIndex.css">
+    <!--通用JS-->
+    <script src="../js/common.js"></script>
+</head>
+<body>
+<section class="quna-index">
+    <div class="didi-input-box">
+        <input class="input-text" type="text" value="" placeholder="请输入蓝钻礼券" maxlength="20">
+        <a style="display: none;" href="javascript:;"></a>
+    </div>
+    <p class="prompt-info">不区分大小写，无需输入空格或连字符</p>
+    <!--&lt;!&ndash;处理多次点击的时候让用户无法点击的情况直接加入disabled 同时让按钮进行倒计时读秒 按钮的样式变成灰色&ndash;&gt;-->
+    <input type="button" class="submiting" value="" >
+    <div class="member-forward">
+        <a href="javascript:;"></a>
+    </div>
+    <div class="title-box">
+        <h2 class="title-hot"></h2>
+        <a href="javascript:;">查看更多&gt;</a>
+    </div>
+    <div class="list-box">
+        <ul class="list-ul">
+            <li>
+                <img src="../images/pic1.jpg" alt="">
+                <p>蓝钻专享贴吧31天</p>
+                <div>
+                    <i class="icon-bd"></i><b>129700000</b>
+                </div>
+            </li>
+            <li>
+                <img src="../images/pic1.jpg" alt="">
+                <p>蓝钻专享贴吧31天</p>
+                <div>
+                    <i class="icon-bd"></i><b>1000</b>
+                </div>
+            </li>
+            <li>
+                <img src="../images/pic1.jpg" alt="">
+                <p>蓝钻专享贴吧31天</p>
+                <div>
+                    <i class="icon-bd"></i><b>100</b>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="title-box margin-top-none">
+        <h2 class="title-useInfo"></h2>
+    </div>
+    <div class="Instructions">
+        <p><i class="pop-icon1"></i><em>蓝钻礼券只限当前帐户使用，不能重复使用</em></p>
+        <p><i class="pop-icon2"></i><em>蓝钻可以在兑一兑商城兑换商品</em></p>
+        <p><i class="pop-icon3"></i><em>如有问题请拨打客服电话“400-838-0686”</em></p>
+        <p><i class="pop-icon4"></i><em>解释权归上古彩科技股份有限公司所有</em></p>
+    </div>
+</section>
+<!--弹框-->
+<div class="BombBox">
+    <div class="Mask"></div>
+    <div class="Bomb1">
+        <div class="Bomb1-con">
+            已成功兑换<i>1888</i>蓝钻，
+            您可以进行蓝钻交易！
+        </div>
+        <div class="btnBox">
+            <a class="sureBtn" href="javascript:;">确定</a>
+        </div>
+        <a class="closeBtn" href="javascript:;"></a>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /*
+    *  2017.03.08 李北辰
+    *  以下JS主要是监控input中的值还有X什么时候显示和消失
+    *
+    */
+    addLoadEvent(function (){
+        var inputText = document.querySelector('.didi-input-box .input-text');
+        var inputA = document.querySelector('.didi-input-box a');
+        //获取提交按钮的class
+        var textButton = document.querySelector('.submiting');
+        //var timer = null;
+        //var num = 6;
+        var promptInfo = document.querySelector('.prompt-info');
+
+        inputText.onkeyup = function (){
+            inputText.value = inputText.value.replace(/[\W]/g,'');
+            if(inputText.value){
+                inputA.style.display = 'block';
+            }else {
+                inputA.style.display = 'none';
+            }
+        };
+        inputText.onkeydown = function (){
+            promptInfo.innerHTML = '您输入的蓝钻礼券不正确，请您核对礼券信息';
+            promptInfo.style.color = '#da0101';
+        };
+        inputA.onclick = function (){
+            inputText.value = '';
+            inputA.style.display = 'none';
+            promptInfo.innerHTML = '不区分大小写，无需输入空格或连字符';
+            promptInfo.style.color = '#cda869';
+        };
+        //        本期取消的script  begin
+        //        function textButtonBegin(obj){
+        //            clearInterval(timer);
+        //            obj.style.background = 'url("../images/buneng42082.png") no-repeat 0 0';
+        //            obj.style.backgroundSize = '100% 100%';
+        //            obj.style.webkitBackgroundSize = '100% 100%';
+        //            obj.style.color = '#fff';
+        //            timer= setInterval(function(){
+        //                num--;
+        //                obj.value = '请您等'+num+'S后继续兑换';
+        //                obj.disabled = 'disabled';
+        //                if(num<=0){
+        //                    obj.value = '立即兑换';
+        //                    clearInterval(timer);
+        //                    num = 6;
+        //                    obj.disabled = '';
+        //                    obj.style.background = 'url("../images/duihuan.png") no-repeat 0 0';
+        //                    obj.style.backgroundSize = '100% 100%';
+        //                    obj.style.webkitBackgroundSize = '100% 100%';
+        //                }
+        //            },1000);
+        //        }
+        //
+        //        textButton.addEventListener('touchstart',function (){
+        //            textButtonBegin(textButton);
+        //        },false);
+        //        本期取消的script  end
+
+
+
+        //获取金额数字直接做格式化处理
+        var moneyHek = document.querySelectorAll('.list-ul li div b');
+        for(var i = 0 ; i < moneyHek.length ; i ++ ){
+            moneyHek[i].innerHTML = toThousands(moneyHek[i].innerHTML);
+
+        }
+
+        //玩弄弹框
+        function handler(event) {
+            event.preventDefault();
+        }
+        function exchangeCallback(){
+            var BombBox = document.querySelector('.BombBox');
+            var sureBtn = document.querySelector('.sureBtn');
+            var closeBtn = document.querySelector('.closeBtn');
+            var diamondAmount = document.getElementById('diamondAmount');
+            var body = document.body;
+            var timerTwo = null;
+            BombBox.style.display = 'block';
+            // 绑定事件
+            document.addEventListener('touchmove', handler, false);
+            //document.body.addEventListener('touchmove', function (event) {
+            //  event.preventDefault();
+            //}, false);
+            window.oMask = document.createElement('div');
+            oMask.style.height= '20rem';
+            oMask.style.width= '100%';
+            oMask.style.background = 'transparent';
+            oMask.style.position = 'absolute';
+            oMask.style.left = '0';
+            oMask.style.top = '0';
+            oMask.style.zIndex = '900';
+            oMask.className = 'Mask';
+            body.appendChild(oMask);
+            sureBtn.onclick = function (){
+                inputText.value = '';
+                BombBox.style.display = 'none';
+                body.removeChild(oMask);
+                //window.location.href = "http://m.dui1dui.com";
+            };
+            clearTimeout(timerTwo);
+            closeBtn.onclick = function (){
+                BombBox.style.display = 'none';
+                // 解绑事件
+                document.removeEventListener('touchmove', handler, false);
+                //document.body.addEventListener('touchmove', function (event) {
+                //  window.event.returnValue = false;
+                //}, false);
+                timerTwo=setTimeout(function (){
+                    body.removeChild(oMask);
+                    clearTimeout(timerTwo);
+                },500);
+            };
+        }
+        textButton.onclick = function (){
+            exchangeCallback();
+        };
+    });
+</script>
